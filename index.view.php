@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Menú Pizzería</title>
+    
+</head>
+
+<body>
+
 <?php
 function mostrarMenu($articulos) {
 
@@ -6,21 +17,21 @@ function mostrarMenu($articulos) {
 
     foreach ($articulos as $articulo) {
         if ($articulo instanceof Pizza) {
-            echo $articulo->nombre . ' - $' . $articulo->precio . '<br>';
+            echo $articulo->nombre . '<br>';
         }
     }
  
     echo '<h2>Bebidas</h2>';
     foreach ($articulos as $articulo) {
         if ($articulo instanceof Bebida) {
-            echo $articulo->nombre . ' - $' . $articulo->precio . '<br>';
+            echo $articulo->nombre . '<br>';
         }
     }
  
     echo '<h2>Otros</h2>';
     foreach ($articulos as $articulo) {
         if (!($articulo instanceof Pizza) && !($articulo instanceof Bebida)) {
-            echo $articulo->nombre . ' - $' . $articulo->precio . '<br>';
+            echo $articulo->nombre . '<br>';
         }
     }
 }
@@ -29,8 +40,8 @@ function mostrarMasVendidos($articulos) {
 
     echo '<h1>Los más vendidos</h1>';
 
-    usort($articulos, function($a, $b) {
-        return $b->contador - $a->contador;
+    usort($articulos, function($art1, $art2) {
+        return $art2->contador - $art1->contador;
     });
  
     for ($i = 0; $i < 3; $i++) {
@@ -41,13 +52,18 @@ function mostrarMasVendidos($articulos) {
 function mostrarMasLucrativos($articulos) {
 
     echo '<h1>¡Los más lucrativos!</h1>';
-    
-    usort($articulos, function($a, $b) {
-        return $b->calcularBeneficio() - $a->calcularBeneficio();
+
+    usort($articulos, function($art1, $art2) {
+        return $art2->calcularBeneficio() - $art1->calcularBeneficio();
     });
  
     foreach ($articulos as $articulo) {
         echo $articulo->nombre . ' - Beneficio: $' . $articulo->calcularBeneficio() . '<br>';
     }
 }
+
 ?>
+
+</body>
+
+</html>
