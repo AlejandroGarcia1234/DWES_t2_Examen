@@ -1,6 +1,6 @@
 <?php
  
-// GitHub: 
+// GitHub: https://github.com/AlejandroGarcia1234/DWES_t2_Examen
 
 include 'index.view.php';
 include 'articulo.php';
