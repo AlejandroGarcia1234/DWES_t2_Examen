@@ -7,7 +7,6 @@ include 'articulo.php';
 include 'bebida.php';
 include 'pizza.php';
 
- 
 $articulos = [
     new Articulo("Lasagna", 3.50, 7.00, 20),
     new Articulo("Pan de ajo y mozzarella", 2.00, 4.50, 15),

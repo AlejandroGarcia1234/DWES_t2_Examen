@@ -4,8 +4,8 @@
 <head>
 
     <meta charset="utf-8">
-    <title>Menú Pizzería</title>
-    
+    <title>Menú Pizzería Mamma Mía</title>
+
 </head>
 
 <body>
@@ -13,6 +13,7 @@
 <?php
 function mostrarMenu($articulos) {
 
+    echo '<h1>¡Bienvenido a la Pizzería Mamma Mía!</h1>';
     echo '<h1>Nuestro menú</h1>';
     echo '<h2>Pizzas</h2>';
 
@@ -59,7 +60,7 @@ function mostrarMasLucrativos($articulos) {
     });
  
     foreach ($articulos as $articulo) {
-        echo $articulo->nombre . ' - Beneficio: $' . $articulo->calcularBeneficio() . '<br>';
+        echo $articulo->nombre . ' - Beneficio: ' . $articulo->calcularBeneficio() . '€' . '<br>';
     }
 }
 
